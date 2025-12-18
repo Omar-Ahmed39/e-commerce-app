@@ -88,7 +88,7 @@ npm run dev
 Created by **Omar Ahmed**
 
 * **GitHub:** [Omar-Ahmed39](https://github.com/Omar-Ahmed39)
-* **Email:** example@gmail.com
+* **Email:** omarahmed3915@gmail.com
 
 <div align="center">
   <br>
