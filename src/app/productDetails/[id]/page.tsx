@@ -2,13 +2,14 @@ import React from 'react'
 import { getProductDetails } from '_/app/_Services/ProductService';
 import AddToCartBtn from '_/app/_Component/AddToCart/AddToCartBtn';
 import AddToWishList from '_/app/wishlist/AddToWishList';
+import ImageSelection from '../ImageSelection';
 
 export const metadata = {
     title: 'Product Details',
 };
 
 type ProductProps = {
-    params: Promise<{ id: string }> // <--- ١. عرف الـ params على إنها Promise
+    params: Promise<{ id: string }>
 }
 
 export default async function ProductDetails(props: ProductProps) {
@@ -19,7 +20,8 @@ export default async function ProductDetails(props: ProductProps) {
         <div>
             <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-6 gap-5 container mx-auto py-15">
                 <div className='md:col-span-1 lg:col-span-2'>
-                    <img src={product?.imageCover} alt={product?.title} className='w-full' />
+                    {/* <img src={product?.imageCover} alt={product?.title} className='w-full' /> */}
+                    <ImageSelection imageCover={product?.imageCover} imageList={product?.images} imgTittle = {product?.title}/>
                 </div>
                 <div className='md:col-span-1 lg:col-span-4 flex-col flex gap-2 justify-center '>
                     <h2 className='text-3xl font-semibold text-[#1F2B4C] w-3/4'>{product?.title}</h2>

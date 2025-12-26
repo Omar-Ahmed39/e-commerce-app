@@ -1,6 +1,6 @@
 export type ProductType = {
 
-
+    images:string[],
     title: string,
     price: number,
     imageCover: string,
