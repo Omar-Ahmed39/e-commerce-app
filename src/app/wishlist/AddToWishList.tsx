@@ -5,7 +5,7 @@ import toast from 'react-hot-toast'
 
 
 export default function AddToWishList({ itemId, isProductdetails = false }: { itemId: string, isProductdetails?: boolean }) {
-
+    
     const [isLoading, setisLoading] = useState(false)
     async function handleAddToWishList() {
         setisLoading(true)

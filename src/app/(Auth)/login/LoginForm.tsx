@@ -81,7 +81,7 @@ export default function LoginForm() {
                 />
                 <Link href='/forgetpass' className='text-[#1F2B4C] font-semibold'>Forgot password?</Link>
 
-                <button className='bg-[#FC7732] hover:bg-[#f95f12] duration-300 cursor-pointer p-3 md:w-full md:ms-auto rounded-lg text-xl text-white font-semibold'>{isLoading ? <i className="fa fa-spinner fa-spin text-3xl text-white" ></i> : 'Login'}</button>
+                <button className='bg-[#FC7732] hover:bg-[#f95f12] duration-300 cursor-pointer p-3 md:w-full md:ms-auto rounded-lg text-xl text-white font-semibold'>{isLoading ? <i className="fa fa-spinner fa-spin text-2xl text-white" ></i> : 'Login'}</button>
                 <p className='text-[#1F2B4C] font-semibold'>Don&apos;t have an account?<Link href='/register' className='font-bold'> Register</Link></p>
             </form>
 

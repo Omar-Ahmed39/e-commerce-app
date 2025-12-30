@@ -14,8 +14,8 @@ export default async function Home() {
   return (
     <>
       <HomeHeader />
-        <DynamicSwiper />
-        <AllProducts />
+      <DynamicSwiper />
+      <AllProducts />
     </>
   )
 }

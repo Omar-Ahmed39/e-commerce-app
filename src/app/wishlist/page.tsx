@@ -2,7 +2,6 @@ import React from 'react'
 import { getWishListItems } from './WishList.action';
 import AddToCartBtn from '../_Component/AddToCart/AddToCartBtn';
 import RemoveFromWishList from './RemoveFromWishList';
-import Head from 'next/head';
 
 export const metadata = {
     title: 'Wish List',
@@ -13,10 +12,8 @@ export default async function WishList() {
 
     const items = await getWishListItems()
     return (
-        <div className='cart container mx-auto py-10'>
-            <Head>
-                <title>WishList</title>
-            </Head>
+        <section className='cart container mx-auto py-10'>
+            
             <div className='flex flex-col gap-5 p-10 rounded-2xl shadow-sm bg-white'>
                 <div className='flex justify-between'>
                     <h1 className='text-[#1F2B4C] text-3xl font-semibold'>My Wish List</h1>
@@ -39,6 +36,6 @@ export default async function WishList() {
                 </div>)}
 
             </div>
-        </div>
+        </section>
     )
 }

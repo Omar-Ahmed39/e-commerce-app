@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Trendify",
-  description: "E-commerce app",
+  description: "Shop everything you need in one place! From electronics & fashion to home essentials. Enjoy best prices, fast shipping, and secure payment methods. Shop online now!",
 };
 
 export default function RootLayout({

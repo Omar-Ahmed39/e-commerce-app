@@ -11,14 +11,14 @@ export const metadata = {
 
 
 export default function Login() {
-    
+
     return (
-        <div className='register container mx-auto py-10 '>
+        <div className='register w-3/4 md:w-150 mx-auto py-10 '>
             <Image src={logo} alt='trendify' className='w-60 mx-auto mb-5' />
             <div className='p-7 rounded-2xl shadow-sm bg-white'>
                 <h1 className=' text-4xl font-semibold text-[#1F2B4C] mb-6 pb-3 border-b-2 w-fit'>Login</h1>
 
-                <LoginForm/>
+                <LoginForm />
 
             </div>
         </div >

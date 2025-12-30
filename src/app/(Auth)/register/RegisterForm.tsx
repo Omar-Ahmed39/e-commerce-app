@@ -129,7 +129,7 @@ export default function RegisterForm() {
                         </FormItem>
                     )}
                 />
-                <button className='bg-[#FC7732] hover:bg-[#f95f12] duration-300 cursor-pointer p-3 md:w-full md:ms-auto rounded-lg text-xl text-white font-semibold'>{isLoading ? <i className="fa fa-spinner fa-spin text-3xl text-white" ></i> : 'Register Now'}</button>
+                <button className='bg-[#FC7732] hover:bg-[#f95f12] duration-300 cursor-pointer p-3 md:w-full md:ms-auto rounded-lg text-xl text-white font-semibold'>{isLoading ? <i className="fa fa-spinner fa-spin text-2xl text-white" ></i> : 'Register Now'}</button>
                 <p className='text-[#1F2B4C] font-semibold'>Have an account?<Link href='/login' className='font-bold'> Log In</Link></p>
 
             </form>

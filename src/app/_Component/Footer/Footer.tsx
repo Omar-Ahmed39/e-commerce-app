@@ -15,7 +15,7 @@ export default function Footer() {
 
     return (
         <>{session.data == null ? undefined :
-            <div className='bg-[#1F3256] py-5'>
+            <footer className='bg-[#1F3256] py-5'>
                 <div className='max-w-screen-xl mx-auto p-4'>
                     <div className=''>
                         <Image src={logo} alt='trendify' className='w-60 mx-auto mb-10 border-b-2 pb-3' />
@@ -63,7 +63,7 @@ export default function Footer() {
                 </div>
 
 
-            </div>}
+            </footer>}
 
         </>
 

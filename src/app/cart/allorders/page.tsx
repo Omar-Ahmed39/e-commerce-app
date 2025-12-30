@@ -26,9 +26,7 @@ type OrdersType = {
 
 type MyJwtPayload = {
     id: string;
-    // أضف أي خصائص أخرى موجودة في الـ token إذا أردت
-    // name?: string;
-    // role?: string; 
+
 }
 
 export default async function AllOrders() {
@@ -46,7 +44,7 @@ export default async function AllOrders() {
     return (
 
 
-        <div className='container mx-auto py-10 '>
+        <section className='container mx-auto py-10 '>
 
             <h1 className='text-4xl text-center text-[#1F2B4C] font-bold mb-5'>All Orders</h1>
 
@@ -70,7 +68,10 @@ export default async function AllOrders() {
                             <TableCell>{order.user.name}</TableCell>
                             <TableCell>{order.shippingAddress.city}</TableCell>
                             <TableCell>{order.shippingAddress.phone}</TableCell>
-                            <TableCell>${order.totalOrderPrice}</TableCell>
+                            <TableCell>${order.totalOrderPrice.toLocaleString('en-US', {
+                                style: 'decimal',
+                                currency: 'USD',
+                            })}</TableCell>
                             <TableCell>{order.paymentMethodType}</TableCell>
                             <TableCell>{order.isPaid ? <i className="fa-solid fa-check font-semibold text-green-600"></i> : <i className="fa-solid fa-xmark font-semibold text-red-600" ></i>}</TableCell>
                             <TableCell>{order.isDelivered ? <i className="fa-solid fa-check font-semibold text-green-600"></i> : <i className="fa-solid fa-xmark font-semibold text-red-600" ></i>}</TableCell>
@@ -80,6 +81,6 @@ export default async function AllOrders() {
                 </TableBody>
             </Table>
             <Link href='/' className='p-3 font-semibold text-xl cursor-pointer border-2 border-black  block w-fit mt-3 rounded-2xl hover:text-white hover:bg-black duration-300'>Back to home</Link>
-        </div>
+        </section>
     )
 }
