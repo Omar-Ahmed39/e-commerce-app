@@ -3,16 +3,19 @@ import Link from 'next/link';
 import React from 'react'
 import AddToCartBtn from '../AddToCart/AddToCartBtn';
 import AddToWishList from '_/app/wishlist/AddToWishList';
+import Filtration, { FilterType } from './Filtration';
+import { getAllCategories } from '_/app/_Services/Categoryservice';
 
-export default async function AllProducts() {
-    const products = await getAllProducts();
-    
+export default async function AllProducts({params}:  {params : FilterType}  ) {
+
+    const products = await getAllProducts(params);
+    const catagories = await getAllCategories()
 
     return (
         <>
             <section className='home container mx-auto p-4'>
-
                 <h1 className='text-3xl font-semibold pb-5 text-[#1F2B4C]'>Featured Products</h1>
+                <Filtration catagories={catagories} />
                 <div className='grid md:grid-cols-2 xl:grid-cols-4 gap-5'>
                     {products?.map(({ imageCover, ratingsAverage, priceAfterDiscount, price, title, id }) => {
                         return <div key={id} className='bg-gray-50 p-5 rounded-2xl hover:shadow-[0px_0px_20px_#1F2B4C] duration-300'>
