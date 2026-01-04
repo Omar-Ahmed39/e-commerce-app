@@ -1,9 +1,17 @@
-import { FilterType } from "../_Component/AllProducts/Filtration";
 import { ProductType } from "../_Interfaces/Product.Typs";
 
-export async function getAllProducts(params: FilterType): Promise<ProductType[] | null> {
+export async function getAllProducts(params: {
+    'price[gte]': string,
+    'price[lte]': string,
+    sort: string,
+    category: string,
+    search:string
+}): Promise<ProductType[] | null> {
 
-    const URLParams = new URLSearchParams(params);
+
+    const { search, ...finalParams } = params
+
+    const URLParams = new URLSearchParams(finalParams);
 
 
 

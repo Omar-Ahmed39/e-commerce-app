@@ -7,13 +7,18 @@ import { FilterType } from './_Component/AllProducts/Filtration';
 
 
 
-export default async function Home({ searchParams }: { searchParams:FilterType  }) {
+export default async function Home({ searchParams }: { searchParams:Promise<{
+    'price[gte]': string,
+    'price[lte]': string,
+    sort: string,
+    category: string,
+    search:string
+}>  }) {
 
 
 
   const params = await searchParams;
 
-  console.log(params);
   
 
   return (

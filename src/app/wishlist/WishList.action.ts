@@ -40,8 +40,6 @@ export async function getWishListItems() : Promise<ProductType[]|null>{
             next:{tags:['wishlist']}
         })
         const final = await res.json();        
-        console.log('nnnnnnn' , final);
-
         return final.data
     }
     return null
