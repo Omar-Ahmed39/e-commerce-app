@@ -5,6 +5,7 @@ import AddToCartBtn from '../AddToCart/AddToCartBtn';
 import AddToWishList from '_/app/wishlist/AddToWishList';
 import Filtration, { FilterType } from './Filtration';
 import { getAllCategories } from '_/app/_Services/Categoryservice';
+import MyPagination from './MyPagination';
 
 export default async function AllProducts({params}:  {params : {
     'price[gte]': string,
@@ -14,7 +15,7 @@ export default async function AllProducts({params}:  {params : {
     search:string
 }}  ) {
 
-    const products = await getAllProducts(params);
+    const products = await getAllProducts(params);    
     const {search} = params;    
     const catagories = await getAllCategories()
 
@@ -24,7 +25,7 @@ export default async function AllProducts({params}:  {params : {
                 <h1 className='text-3xl font-semibold pb-5 text-[#1F2B4C]'>Featured Products</h1>
                 <Filtration catagories={catagories} />
                 <div className='grid md:grid-cols-2 xl:grid-cols-4 gap-5'>
-                    {products?.map(({ imageCover, ratingsAverage, priceAfterDiscount, price, title, id }) => {  
+                    {products?.data?.map(({ imageCover, ratingsAverage, priceAfterDiscount, price, title, id }) => {  
                         return title.split(' ', 2).join(' ').toLowerCase()?.includes(`${search?.trim().toLowerCase()}`) || search == undefined ? <div key={id} className='bg-gray-50 p-5 rounded-2xl hover:shadow-[0px_0px_20px_#1F2B4C] duration-300'>
                             <Link href={`productDetails/${id}`} >
                                 <figure className='relative'>
@@ -57,6 +58,7 @@ export default async function AllProducts({params}:  {params : {
                         </div> :  undefined
                     })}
                 </div>
+                <MyPagination metaData = {products?.metadata}/>
             </section>
         </>
     )

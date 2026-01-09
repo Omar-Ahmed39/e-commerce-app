@@ -55,7 +55,11 @@ export default function Filtration({ catagories }: { catagories: CategoryType[] 
         data.category != 'all' && data.category ? setUrl.set('category[in]', data.category) : setUrl.delete('category[in]')
         data.search ? setUrl.set('search', data.search) : setUrl.delete('search')
         startTransition(() => {
-            router.push(`${currentPath}?${setUrl.toString()}`, { scroll: false });
+            if (setUrl.toString().includes('page')) {
+                // to remove page param if we do filtration and the number of Pages less than the page param number
+                setUrl.delete('page')
+                router.push(`${currentPath}?${setUrl.toString()}`, { scroll: false });
+            } else { router.push(`${currentPath}?${setUrl.toString()}`, { scroll: false }); }
         });
     }
 

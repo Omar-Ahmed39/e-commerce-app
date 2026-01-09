@@ -1,4 +1,4 @@
-import { ProductType } from "../_Interfaces/Product.Typs";
+import { ProductType , MetaDataType } from "../_Interfaces/Product.Typs";
 
 export async function getAllProducts(params: {
     'price[gte]': string,
@@ -6,7 +6,7 @@ export async function getAllProducts(params: {
     sort: string,
     category: string,
     search:string
-}): Promise<ProductType[] | null> {
+}): Promise<{data : ProductType[] , metadata : MetaDataType }| null> {
 
 
     const { search, ...finalParams } = params
@@ -16,11 +16,10 @@ export async function getAllProducts(params: {
 
 
     try {
-        const res = await fetch(`https://ecommerce.routemisr.com/api/v1/products?` + `${URLParams}`, {
-
-        });
+        const res = await fetch(`https://ecommerce.routemisr.com/api/v1/products?` + `${URLParams}`);
         const finalRes = await res.json();
-        return finalRes.data
+        
+        return finalRes
 
     }
     catch (error) {

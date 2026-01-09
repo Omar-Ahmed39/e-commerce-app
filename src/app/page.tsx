@@ -26,6 +26,7 @@ export default async function Home({ searchParams }: { searchParams:Promise<{
       <HomeHeader />
       <DynamicSwiper />
       <AllProducts params={params}/>
+      
     </>
   )
 }

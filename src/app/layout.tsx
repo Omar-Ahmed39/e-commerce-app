@@ -7,8 +7,6 @@ import Footer from "./_Component/Footer/Footer";
 import { Toaster } from 'react-hot-toast';
 import MySessionProvider from "./_Component/MySessionProvider/MySessionProvider";
 
-// import 'flowbite/dist/flowbite.min.js'
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

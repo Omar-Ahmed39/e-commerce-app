@@ -1,5 +1,4 @@
 export type ProductType = {
-
     images:string[],
     title: string,
     price: number,
@@ -11,7 +10,12 @@ export type ProductType = {
     priceAfterDiscount?: number,
     description: string,
     quantity: number
-
+}
+export type MetaDataType ={
+    currentPage : number,
+    numberOfPages:number,
+    nextPage? : number,
+    prevPage? : number
 }
 
 export type CategoryType = {
