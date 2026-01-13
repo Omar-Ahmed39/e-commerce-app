@@ -10,9 +10,9 @@ export default function RemoveFromWishList({ itemId }: { itemId: string }) {
         setisLoading(true)
         const res = await deleteItem(itemId)
         if (res) {
-            toast.success(res)
+            toast.success('Product removed successfully from wish list')
             setisLoading(false)
-
+            
         } else {
             toast.error('An error occurred.')
             setisLoading(false)

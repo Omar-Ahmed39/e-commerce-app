@@ -1,6 +1,6 @@
 "use server"
 import { getUserToken } from "_/Utils/Utils"
-import { revalidatePath } from "next/cache"
+import { revalidatePath, revalidateTag } from "next/cache"
 import { ProductType } from "../_Interfaces/Product.Typs"
 
 export async function AddItem(productId: string) {
@@ -21,7 +21,7 @@ export async function AddItem(productId: string) {
 
         
         if (final.status === 'success') {
-            revalidatePath('/wishlist');
+            revalidateTag('wishlist');
             return final.data
         }
         return false
@@ -60,7 +60,7 @@ export async function deleteItem(itemId:string) {
         const final = await res.json();
         
         if (final.status === 'success') {
-            revalidatePath('/wishlist');
+            revalidateTag('wishlist');
             return final.message
         }
         return false
