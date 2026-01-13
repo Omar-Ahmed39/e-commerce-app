@@ -6,6 +6,7 @@ import AddToWishList from '_/app/wishlist/AddToWishList';
 import Filtration, { FilterType } from './Filtration';
 import { getAllCategories } from '_/app/_Services/Categoryservice';
 import MyPagination from './MyPagination';
+import { getWishListItems } from '_/app/wishlist/WishList.action';
 
 export default async function AllProducts({params}:  {params : {
     'price[gte]': string,
@@ -18,6 +19,10 @@ export default async function AllProducts({params}:  {params : {
     const products = await getAllProducts(params);    
     const {search} = params;    
     const catagories = await getAllCategories()
+    const wishList = await getWishListItems()
+    const itemsLoved = wishList?.map((itemLoved)=>{return itemLoved.id})
+    console.log(itemsLoved);
+    
 
     return (
         <>
@@ -53,7 +58,7 @@ export default async function AllProducts({params}:  {params : {
                             </Link>
                             <div className='text-center gap-2 flex justify-around items-center'>
                                 <AddToCartBtn prodId={id} />
-                                <AddToWishList itemId={id} />
+                                <AddToWishList itemId={id} wish = {itemsLoved?.includes(id)}/>
                             </div>
                         </div> :  undefined
                     })}
